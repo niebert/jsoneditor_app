@@ -39,7 +39,7 @@
         console.log("BEFORE editor.schema:\n"+JSON.stringify(editor.schema,null,4));
         var vJSON = editor.schema;
         var vContent = JSON.stringify(vJSON,null,4);
-        var vFile = vFileBase+"_schema.json";
+        var vFile = "json4schema.json";
         console.log("JSON Schema output '"+vFile+"':\n"+vContent);
         saveFile2HDD(vFile,vContent);
       });
