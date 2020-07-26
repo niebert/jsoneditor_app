@@ -22,8 +22,12 @@
      <script src="js/filesaver.js"></script>
      <script src="js/jquery.js"></script>
      <script src="js/jsoneditor_x.js"></script>
-    <script>
-	var vDataJSON = {};
+     <script src="js/handlebars4code.js"></script>
+     <script>
+	var vDataJSON = {
+    "tpl":{},
+    "out":{}
+  };
     // Set the default CSS theme and icon library globally
     JSONEditor.defaults.theme = 'bootstrap3';
     JSONEditor.defaults.iconlib = 'fontawesome4';
@@ -45,6 +49,8 @@
 
     <!-- Load SCHEMAS: vSchemaID = "class_schema" -->
     <script src="schema/schema4json.js"></script>
+    <!-- Load SCHEMAS: vSchemaID = "class_schema" -->
+    <script src="tpl/template4json_tpl.js"></script>
   </head>
   <body  onload="lf4d.create()" style="margin:20px">
   	<div style="text-align: center">
@@ -70,6 +76,10 @@
     <button id='bExportSchemaJSON'>
       <img src="img/icons-svg/fa-file-save-white.svg">
       Export JSON Schema
+    </button>
+    <button id='bExportOutput'>
+      <img src="img/icons-svg/fa-file-save-white.svg">
+      Save Handlebars4Code Output
     </button>
 	</div>
     <div id='editor_holder' style="margin:20px"></div>
@@ -120,8 +130,10 @@
         }
       });
     </script>
+    <!--
     <script src="jquery/external/jquery/jquery.js" type="text/javascript"></script>
     <script src="jquery/jquery-ui.js" type="text/javascript"></script>
+    -->
     <script src="js/bootstrap.min.js"></script>
 
 
@@ -136,6 +148,9 @@
         <a href="https://niehausbert.gitlab.com/JSON2Schema" target="_blank">Create your own jsoneditor_app with JSON2Schema</a>
       </font>
     </center>
-
+  <script type="text/javascript">
+    Handlebars4Code.create_compiler(vDataJSON.tpl);
+    vDataJSON.out = Handlebars4Code.get_compiler();
+  </script>
   </body>
 </html>

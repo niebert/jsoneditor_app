@@ -1,4 +1,4 @@
-vDataJSON.tpl.myoutput = `
+vDataJSON.tpl.template4json = `
 ## Javascript Class: \`{{data.classname}}\`
 
 {{{data.comment}}}
