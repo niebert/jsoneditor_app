@@ -1,11 +1,11 @@
 /* ---------------------------------------
  Exported Module Variable: LoadFile4DOM
  Package:  loadfile4dom
- Version:  1.2.13  Date: 2019/09/13 22:01:09
+ Version:  1.2.15  Date: 2019/09/20 13:38:39
  Homepage: https://gitlab.com/niehausbert/loadfile4dom#readme
  Author:   Engelbert Niehaus
  License:  MIT
- Date:     2019/09/13 22:01:09
+ Date:     2019/09/20 13:38:39
  Require Module with:
     const LoadFile4DOM = require('loadfile4dom');
  JSHint: installation with 'npm install jshint -g'

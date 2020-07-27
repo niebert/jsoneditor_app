@@ -1,12 +1,12 @@
 vDataJSON.tpl.template4json = `
-## Javascript Class: \`{{data.classname}}\`
+## Javascript Class: \`{{name}}\`
 
-{{{data.comment}}}
+{{{comment}}}
 * created with [ClassEditorUML](https://niebert.github.io/ClassEditorUML) - Date: {{data.reposinfo.created}}
 * last modifications at {{data.reposinfo.modified}}
 * URL Class Editor for UML: https://niebert.github.io/ClassEditorUML
-* File: \`js/{{filename data.classname}}.js\`
-* UML-File: \`jscc/{{filename data.classname}}_uml.json\` - open with [ClassEditorUML](https://niebert.github.io/ClassEditorUML)
+* File: \`js/{{name}}.js\`
+* UML-File: \`jscc/{{name}}_uml.json\` - open with [ClassEditorUML](https://niebert.github.io/ClassEditorUML)
 {{#ifcond data.superclassname "!=" " "}}
 * Superclass: \`{{data.superclassname}}\` - code generation in \`ClassEditorUML\` can insert the require-commands automatically. For the settings expand the \`Repository Info\` in ClassEditorUML. You can set \`Require Classes NPM:\` to \`Yes\` and \`ClassEditorUML\` will include require command for super class. ClassEditorUML assumes, that the super class is a locally available.
 \`\`\`javascript
@@ -16,24 +16,16 @@ The require command assumes the file \`{{filename data.classname}}.js\` in the s
 {{/ifcond}}
 
 ### Diagram
-{{#ifcond data.superclassname "!=" ""}}
-{{#ifcond data.superclassname "!=" " "}}
-The class  \`{{data.classname}}\` inherits all attributes and methods from superclass: \`{{data.superclassname}}\` please require NPM module for super class if it is not available locally by:
-\`\`\`javascript
-const {{data.superclassname}} = require('{{filename data.superclassname}}');
-\`\`\`
-{{/ifcond}}
-{{/ifcond}}
 
-|  {{data.classname}}               |
+|  {{name}}               |
 | ---------------------------- |
-| {{{attribs_uml data.attributes}}} |
-| {{{methods_uml data.methods}}}    |
+| {{{attribs_uml attributes}}} |
+| {{{methods_uml methods}}}    |
 
 ### Create Instance of Class
-Instances of the class \`{{data.classname}}\` can be generated with:
+Instances of the class \`{{name}}\` can be generated with:
 \`\`\`javascript
-    var v{{data.classname}} = new {{data.classname}}();
+    var v{{name}} = new {{name}}();
 \`\`\`
 
 ### Definition Methods - 2 Approaches
@@ -41,17 +33,17 @@ Instances of the class \`{{data.classname}}\` can be generated with:
 \`\`\`javascript
     this.my_method = function (pPar1,pPar2)
 \`\`\`
-* A prototype definition of methods for \`{{data.classname}}\` will be set the definition as prototye for all instances of the class. Alteration of the prototye definition with change the method definition of all instances of  \`{{data.classname}}\`. Use the following prototype definition for methods name for '{{data.classname}}'.
+* A prototype definition of methods for \`{{name}}\` will be set the definition as prototye for all instances of the class. Alteration of the prototye definition with change the method definition of all instances of  \`{{name}}\`. Use the following prototype definition for methods name for '{{name}}'.
 \`\`\`javascript
-    {{data.classname}}.prototype.my_method = function (pPar1,pPar2)
+    {{name}}.prototype.my_method = function (pPar1,pPar2)
 \`\`\`
 The prototype definition for methods consumes less memory for instances.
 
-### Attributes: \`{{data.classname}}\`
-For class \`{{data.classname}}\` the following attributes are defined:
-{{#foreach data.attributes data}}
+### Attributes: \`{{name}}\`
+For class \`{{name}}\` the following attributes are defined:
+{{#foreach attributes this}}
 
-#### Attribute \`{{name}} : {{class}}\`
+#### Attribute \`{{name}} : Object\`
 {{{comment}}}
 * Visibility: \`{{visibility}}\`
 * Class: \`{{class}}\`
@@ -77,9 +69,9 @@ For class \`{{data.classname}}\` the following attributes are defined:
 {{/ifcond}}
 {{/foreach}}
 
-### Methods: \`{{data.classname}}\`
-For class \`{{data.classname}}\` the following methods are defined:
-{{#foreach data.methods data}}
+### Methods: \`{{name}}\`
+For class \`{{name}}\` the following methods are defined:
+{{#foreach methods this}}
 
 #### Method \`{{name}}({{#paramcall parameter}}{{/paramcall}})\`
 {{{comment}}}
@@ -88,7 +80,7 @@ For class \`{{data.classname}}\` the following methods are defined:
 {{#ifcond return "!=" ""}}
 * Returns: \`{{return}}\`
 {{#ifcond visibility "==" "public"}}
-* Call: \`var v{{return}}Ret = v{{data.classname}}.{{name}}({{#paramcall parameter}}{{/paramcall}});\` where \`v{{data.classname}} = new {{data.classname}}()\` is an instance of the class \`= {{data.classname}}\`.
+* Call: \`var v{{return}}Ret = v{{name}}.{{name}}({{#paramcall parameter}}{{/paramcall}});\` where \`v{{name}} = new {{name}}()\` is an instance of the class \`= {{name}}\`.
 {{/ifcond}}
 {{#ifcond visibility "==" "private"}}
 * Call: \`var v{{return}}Ret = {{name}}({{#paramcall parameter}}{{/paramcall}});\`
@@ -98,7 +90,7 @@ For class \`{{data.classname}}\` the following methods are defined:
 {{#ifcond return "==" " "}}
 {{#ifcond return "==" ""}}
 {{#ifcond visibility "==" "public"}}
-* Call: \`v{{data.classname}}.{{name}}({{#paramcall parameter}}{{/paramcall}});\` where \`v{{data.classname}} = new {{data.classname}}()\` is an instance of the class \`{{data.classname}}\`.
+* Call: \`v{{name}}.{{name}}({{#paramcall parameter}}{{/paramcall}});\` where \`v{{name}} = new {{name}}()\` is an instance of the class \`{{name}}\`.
 {{/ifcond}}
 {{#ifcond visibility "==" "private"}}
 * Call: \`{{name}}({{#paramcall parameter}}{{/paramcall}});\`

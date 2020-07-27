@@ -54,7 +54,11 @@
         //var vContent = Handlebars4Code.compile_code(vTplID,vJSON);
         var vCompiler = Handlebars4Code.create_compiler4template(vTemplate)
         var vContent = vCompiler(vJSON);
-        var vFile = el("jsonfile").value + ".txt";
+        var vFile = el("jsonfile").value;
+        if (vFile.indexOf(".")>0) {
+          vFile = vFile.substr(0,vFile.indexOf("."));
+        };
+        vFile += el("tExtension").value;
         saveFile2HDD(vFile,vTemplate);
         console.log("JSON Template Output stored in '"+vFile+"'"+vContent);
       });

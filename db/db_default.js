@@ -1,1 +1,6 @@
-vDataJSON.db_default = {};
+vDataJSON.db_default = {
+    "name": " ",
+    "comment": " ",
+    "attributes": [],
+    "methods": []
+};

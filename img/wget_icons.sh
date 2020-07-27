@@ -2,6 +2,14 @@
 echo "WGET Script to download Icons4Menu"
 echo "----------------------------------"
 echo "Source: https://niebert.github.io/icons4menu/wget_icons.sh"
+echo "Check if current folder name is 'img' - then script started from folder 'img'."
+currentfolder=${PWD##*/}
+if [ "$currentfolder" = "img" ]; then
+    echo "Started in 'img' - change to parent directory"
+    cd ..
+else
+    echo "Not started in directory 'img' - start script directly!"
+fi;
  
 DOWNLOAD_FOLDER="icons-svg"
  
@@ -133,8 +141,10 @@ if [ "$DOWNLOAD_FOLDER" = "icons-svg" ]; then
  
     wget https://niebert.github.io/icons4menu/img/icons-svg/action-black.svg -O img/icons-svg/action-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/action-white.svg -O img/icons-svg/action-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/action.svg -O img/icons-svg/action.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/alert-black.svg -O img/icons-svg/alert-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/alert-white.svg -O img/icons-svg/alert-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/alert.svg -O img/icons-svg/alert.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/arrow-d-black.svg -O img/icons-svg/arrow-d-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/arrow-d-l-black.svg -O img/icons-svg/arrow-d-l-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/arrow-d-l-white.svg -O img/icons-svg/arrow-d-l-white.svg
@@ -246,12 +256,18 @@ if [ "$DOWNLOAD_FOLDER" = "icons-svg" ]; then
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-font-black.svg -O img/icons-svg/fa-font-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-font-white.svg -O img/icons-svg/fa-font-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-font.svg -O img/icons-svg/fa-font.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-globe-black.svg -O img/icons-svg/fa-globe-black.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-globe-white.svg -O img/icons-svg/fa-globe-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-globe.svg -O img/icons-svg/fa-globe.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-hamburger-icon-black.svg -O img/icons-svg/fa-hamburger-icon-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-hamburger-icon-white.svg -O img/icons-svg/fa-hamburger-icon-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-hamburger-icon.svg -O img/icons-svg/fa-hamburger-icon.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-harddisk-black.svg -O img/icons-svg/fa-harddisk-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-harddisk-white.svg -O img/icons-svg/fa-harddisk-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-harddisk.svg -O img/icons-svg/fa-harddisk.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-key-black.svg -O img/icons-svg/fa-key-black.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-key-white.svg -O img/icons-svg/fa-key-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-key.svg -O img/icons-svg/fa-key.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-language-black.svg -O img/icons-svg/fa-language-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-language-white.svg -O img/icons-svg/fa-language-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-language.svg -O img/icons-svg/fa-language.svg
@@ -261,15 +277,23 @@ if [ "$DOWNLOAD_FOLDER" = "icons-svg" ]; then
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-list-black.svg -O img/icons-svg/fa-list-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-list-white.svg -O img/icons-svg/fa-list-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-list.svg -O img/icons-svg/fa-list.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-minus-square-black.svg -O img/icons-svg/fa-minus-square-black.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-minus-square-white.svg -O img/icons-svg/fa-minus-square-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-minus-square.svg -O img/icons-svg/fa-minus-square.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-paste-black.svg -O img/icons-svg/fa-paste-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-paste-white.svg -O img/icons-svg/fa-paste-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-paste.svg -O img/icons-svg/fa-paste.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-picture-black.svg -O img/icons-svg/fa-picture-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-picture-white.svg -O img/icons-svg/fa-picture-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-picture.svg -O img/icons-svg/fa-picture.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-plus-square-black.svg -O img/icons-svg/fa-plus-square-black.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-plus-square-white.svg -O img/icons-svg/fa-plus-square-white.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-plus-square.svg -O img/icons-svg/fa-plus-square.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-print-black.svg -O img/icons-svg/fa-print-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-print-white.svg -O img/icons-svg/fa-print-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-print.svg -O img/icons-svg/fa-print.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-qrcode-black.svg -O img/icons-svg/fa-qrcode-black.svg
+    wget https://niebert.github.io/icons4menu/img/icons-svg/fa-qrcode-white.svg -O img/icons-svg/fa-qrcode-white.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-qrcode.svg -O img/icons-svg/fa-qrcode.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-settings-black.svg -O img/icons-svg/fa-settings-black.svg
     wget https://niebert.github.io/icons4menu/img/icons-svg/fa-settings-white.svg -O img/icons-svg/fa-settings-white.svg

@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+/*
+	light color: #F6F4E2
+	medium color:
+	dark brown:   #70420D
+*/
+
+body {
+  background: #F6F4E2; /* {{{background}}} app & desktop #F6F4E2; */
+  font-family:  sans-serif;
+  letter-spacing: 1px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1960px;
+  margin: 0 auto;
+}
+
+
+/*
+.container {
+  max-width: 960px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  background: #2059b5;
+  color: #f7e9cc;
+  padding: 1.5em 0;
+  position: relative;
+}
+
+/*header::after {
+  content: '';
+  clear: both;
+  display: block;
+}*/
+
+.menu-icon {
+  margin-left: 1em;
+  margin-right: 1em;
+  width: 1.0em;
+  /* letter-spacing: 3px;
+  text-align: right;
+  color: rgba(255,255,255,.4);  */
+}
+
+.logo {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+  padding-top: 24px;
+  padding-left: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  height: 65px;
+  background-color: #E4B363; /* dark background logo & app menu bar #E4B363 - dark blue #0431B4  */
+}
+
+.logo span {
+  font-weight: 400;
+}
+
+.menu-toggle {
+  position: absolute;
+  padding: 0.8em;
+  top: 1em;
+  right: .5em;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  background: #EBEBD3; /* {{{logocolor}}} hamburger logo color - #EBEBD3 */
+  height: 3px;
+  width: 2em;
+  border-radius: 3px;
+  -webkit-transition: all ease-in-out 350ms;
+  transition: all ease-in-out 350ms;
+}
+
+.hamburger::before {
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.hamburger::after {
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.open .hamburger {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+  display: none;
+}
+
+.open .hamburger::after {
+  -webkit-transform: translateY(-1px) rotate(-90deg);
+          transform: translateY(-1px) rotate(-90deg);
+}
+
+/* .site-nav--open {
+  -webkit-clip-path: circle(150% at top right);
+          clip-path: circle(150% at top right);
+}
+*/
+
+
+.nav-text {
+  display: inline;
+}
+
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+nav ul.opening {
+    display: block;
+    height: 30px;
+}
+
+nav li {
+  border-bottom: 1px solid #EBEBD3; /* light grey brownisch color - before #f6f4e2 */
+}
+nav li:last-child {
+  border-bottom: none;
+}
+nav a {
+  color: #EBEBD3; /* {{{menu.textcolor}}} app & desktop like background #EBEBD3 */
+  background: #333000; /* MOBILE: before #333 */
+  display: block;
+  padding: 1.5em 4em 1.5em 3em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #70420D; /* MOBILE: hover in App menu background in menu #E4B363 */
+}
+nav a:focus {
+  background: #E4B363; /* MOBILE: focus background in App Menu #E4B363 */
+}
+
+.site-nav--icon {
+  font-size: 1.4em;
+  margin-right: 1em;
+  width: 1.1em;
+  text-align: right;
+  color: rgba(255,255,255,.4);
+}
+
+/* flex styles */
+
+
+/*
+nav {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #e7a119;
+  -webkit-clip-path: circle(0px at top left);
+          clip-path: circle(0px at top left);
+  -webkit-transition: -webkit-clip-path ease-in-out 700ms;
+  transition: -webkit-clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms;
+  transition: clip-path ease-in-out 700ms, -webkit-clip-path ease-in-out 700ms;
+  text-align: left;
+}
+*/
+
+
+
+
+
+/*
+  ---------------------------------------------
+  DESKTOP SETTINGS:
+  i.e. all devices with a minimum screen width of 780px
+  ---------------------------------------------
+*/
+@media (min-width: 780px) {
+
+/* hide the [X] resp. [=] menu toggle symbol
+   on navigation bar, if screen width exceeds 70px */
+  .menu-toggle {
+    display: none;
+  }
+
+
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  nav li {
+     flex: 1 1 auto;
+     border: none;
+ }
+
+   nav li a {
+       padding: 1.5em 1.3em 1.5em 1.3em;
+       margin: 0;
+       border: none;
+       background-color: #E4B363;   /* DESKTOP: desktop menu dark background blue #2059b5*/
+    }
+    nav a:hover{
+      background-color: #d18428; /* DESKTOP: hover background desktop menu - before #E4B363, rgba(255,255,255,.10); */
+    }
+    nav a:focus {
+      background-color: #472a07; /* DESKTOP: Focus background desktop menu - before rgba(255,255,255,.10); */
+    }
+
+
+
+  .logo {
+      flex: 0 0 200px;
+      margin: 0;
+      padding-left: 20px;
+  }
+
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      text-align: center;
+      background-color: #E4B363;   /* desktop dark background before #2059b5;*/
+    }
+  /* nav {
+      flex: 1 1 0;
+      -webkit-clip-path: none;
+            clip-path: none;
+
+      border: 3px solid purple;
+  }
+*/
+
+  /*.site-nav a:hover,
+  .site-nav a:focus {
+    background: transparent;
+  }
+*/
+  .site-nav--icon {
+    display: none;
+  }
+
+}
+
+.pages-app {
+	margin: 10px;
+}
