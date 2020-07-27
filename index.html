@@ -48,6 +48,7 @@
     <script src="js/loadfile4dom_init.js"></script>
 
     <script src="db/db_default.js"></script>
+    <script src="db/db_init.js"></script>
     <!-- Load SCHEMAS: vSchemaID = "class_schema" -->
     <script src="schema/schema4json.js"></script>
     <!-- Load SCHEMAS: vSchemaID = "class_schema" -->
@@ -103,10 +104,10 @@
         ajax: true,
 
         // The schema for the editor
-        schema: vDataJSON["schema4json"],
+        schema: vDataJSON.schema4json,
 
         // Seed the form with a starting value
-        //startval: starting_value,
+        startval: vDataJSON.db_init,
 
         // Disable additional properties
         no_additional_properties: true,
