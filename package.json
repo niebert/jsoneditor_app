@@ -1,0 +1,26 @@
+{
+  "name": "jsoneditor_app",
+  "version": "1.0.0",
+  "description": "JSON Editor WebApp as AppLSAC for JSON2Schema",
+  "main": "version4index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niebert/jsoneditor_app.git"
+  },
+  "keywords": [
+    "JSON",
+    "Editor"
+  ],
+  "author": "Engelbert Niehaus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/niebert/jsoneditor_app/issues"
+  },
+  "homepage": "https://github.com/niebert/jsoneditor_app#readme",
+  "dependencies": {
+    "build4code": "^0.3.22"
+  }
+}
