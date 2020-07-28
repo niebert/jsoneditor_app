@@ -42,12 +42,12 @@ body {
 }
 
 .btn4menu:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  background: #d18428;
+  background-image: -webkit-linear-gradient(top, #d18428, #e4b363);
+  background-image: -moz-linear-gradient(top, #d18428, #e4b363);
+  background-image: -ms-linear-gradient(top, #d18428, #e4b363);
+  background-image: -o-linear-gradient(top, #d18428, #e4b363);
+  background-image: linear-gradient(to bottom, #d18428, #e4b363);
   text-decoration: none;
 }
 
