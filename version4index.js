@@ -2,7 +2,7 @@ const fs = require("fs");
 const pkg = require("./package.json");
 const b4c = require("build4code").codegen;
 // <div id="version">1.2.3.4</div>
-console.log("Set version build.js for '" + pkg.name + "' version "+pkg.version);
+console.log("Set version for 'index.html' and 'index4menu.html' for '" + pkg.name + "' with version "+pkg.version);
 
 var outfile = "undefined content";
 var outfile4menu = "undefined content";
