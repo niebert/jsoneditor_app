@@ -50,7 +50,7 @@
         var vJSON = editor.getValue();
         var vTplID = "template4json";
         var vTemplate = vDataJSON.tpl[vTplID];
-        console.log("vTemplate="+vTemplate);
+        console.log("vTemplate="+vTemplate.subtr(0,250)+"...");
         //var vContent = Handlebars4Code.compile_code(vTplID,vJSON);
         var vCompiler = Handlebars4Code.create_compiler4template(vTemplate)
         var vContent = vCompiler(vJSON);
@@ -59,6 +59,6 @@
           vFile = vFile.substr(0,vFile.indexOf("."));
         };
         vFile += el("tExtension").value;
-        saveFile2HDD(vFile,vTemplate);
+        saveFile2HDD(vFile,vContent);
         console.log("JSON Template Output stored in '"+vFile+"'"+vContent);
       });
