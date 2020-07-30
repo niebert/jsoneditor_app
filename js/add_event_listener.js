@@ -1,18 +1,21 @@
+      function el(pID) {
+        return document.getElementById(pID);
+      }
 
       // Hook up the submit button to log to the console
-      document.getElementById('submit').addEventListener('click',function() {
+      el('submit').addEventListener('click',function() {
         // Get the value from the editor
         var vContent = JSON.stringify(editor.getValue(),null,4);
         console.log("JSON Data:\n"+vContent);
       });
 
       // Hook up the Restore to Default button
-      document.getElementById('restore').addEventListener('click',function() {
+      el('restore').addEventListener('click',function() {
         editor.setValue(starting_value);
       });
 
       // Hook up the enable/disable button
-      document.getElementById('enable_disable').addEventListener('click',function() {
+      el('enable_disable').addEventListener('click',function() {
         // Enable form
         if(!editor.isEnabled()) {
           editor.enable();
@@ -24,7 +27,7 @@
       });
 
       // Hook up the submit button to export JSON
-      document.getElementById('bExportJSON').addEventListener('click',function() {
+      el('bExportJSON').addEventListener('click',function() {
         // Get the value from the editor
         var vJSON = editor.getValue();
         var vContent = JSON.stringify(vJSON,null,4);
@@ -34,7 +37,7 @@
       });
 
       // Hook up the submit button to export JSON Schema
-      document.getElementById('bExportSchemaJSON').addEventListener('click',function() {
+      el('bExportSchemaJSON').addEventListener('click',function() {
         // Get the value from the editor
         console.log("BEFORE editor.schema:\n"+JSON.stringify(editor.schema,null,4));
         var vJSON = editor.schema;
@@ -44,7 +47,15 @@
         saveFile2HDD(vFile,vContent);
       });
 
-      document.getElementById('bExportOutput').addEventListener('click',function() {
+      function getBaseFileName() {
+        var vFile = el("jsonfile").value;
+        if (vFile.indexOf(".")>0) {
+          vFile = vFile.substr(0,vFile.indexOf("."));
+        }
+        return vFile;
+      }
+
+      el('bExportOutput').addEventListener('click',function() {
         // Get the value from the editor
         console.log("button 'bExportOutput' pressed");
         var vJSON = editor.getValue();
@@ -52,12 +63,9 @@
         var vTemplate = vDataJSON.tpl[vTplID];
         console.log("vTemplate="+vTemplate.subtr(0,250)+"...");
         //var vContent = Handlebars4Code.compile_code(vTplID,vJSON);
-        var vCompiler = Handlebars4Code.create_compiler4template(vTemplate)
+        var vCompiler = Handlebars4Code.create_compiler4template(vTemplate);
         var vContent = vCompiler(vJSON);
-        var vFile = el("jsonfile").value;
-        if (vFile.indexOf(".")>0) {
-          vFile = vFile.substr(0,vFile.indexOf("."));
-        };
+        var vFile = getBaseFileName();
         vFile += el("tExtension").value;
         saveFile2HDD(vFile,vContent);
         console.log("JSON Template Output stored in '"+vFile+"'"+vContent);

@@ -44,16 +44,18 @@
     JSONEditor.defaults.theme = 'bootstrap3';
     JSONEditor.defaults.iconlib = 'fontawesome4';
 
+    //--- Handlebars4Code: see https://www.github.com/niebert/HandleBars4Code ---
+
     function saveFile2HDD(pFilename,pContent) {
       var file = new File([pContent], {type: "text/plain;charset=utf-8"});
       saveAs(file,pFilename);
     }
 
-
-    //--- Handlebars4Code: see https://www.github.com/niebert/HandleBars4Code ---
-    function el(pID) {
-      return document.getElementById(pID);
+    function saveTemplate2HDD(pContent) {
+      var vFilename = getBaseFileName()+".tpl";
+      saveFile2HDD(vFilename,pContent)
     }
+
 
 </script>
     <script src="js/loadfile4dom_init.js"></script>
@@ -117,13 +119,20 @@
         Save JSON
       </button>
       <input type="text" id="jsonfile" length="10" value="myjson.json">
+
+      <!-- Begin: Hidden Buttons -->
       <button id='submit' style="display:none">Submit (console.log)</button>
       <button id='enable_disable' style="display:none">Disable/Enable Form</button>
+      <!--  End: hidden Buttons --->
+      <br>
       <button id='bExportOutput' class="btn4menu">
         <img src="img/icons-svg/fa-file-save-white.svg">
         Save Handlebars4Code Output
       </button>
-
+      <button id='bShowTemplate' class="btn4menu" onclick="app.nav.page('settings');return false">
+        <img src="img/icons-svg/gear-white.svg">
+        Show Template
+      </button>
       </div>
       <div class="pages-app" data-role="page" id="edit">
         <h2>Edit</h2>
@@ -208,8 +217,17 @@
           <br>
           <button id='bExportSchemaJSON' class="btn4menu">
             <img src="img/icons-svg/fa-file-save-white.svg">
-            Export JSON Editor Schema
-          </button>
+            Save JSON Editor Schema
+          </button> - see <a href="https://niehausbert.gitlab.io/JSON2Schema">JSON2Schema on GitLab</a>
+          <hr>
+          <b>Template for Handlebars4Code:</b>
+          <div style="float:center;width:90%;">
+            <textarea id="tTemplate" style="width:100%;height:100%" rows="20" ></textarea>
+          </div>
+          <button id='bExportTemplate' class="btn4menu" onclick="saveFile2HDD('template4json'+el('tExtension').value+'.tpl',el('tTemplate').value)">
+            <img src="img/icons-svg/fa-file-save-white.svg">
+            Save Template
+          </button> - see <a href="https://www.gitlab.com/niehausbert/handlebars4code">Handlebars4Code on GitLab</a>
 
       </div>
       <div class="pages-app" data-role="page" id="about">
@@ -221,9 +239,24 @@
 			       AppLSAC
 			    </h4>
 
-			    This is a JSON editor with Load, Save and Print features running completely in the browser without submission of loaded data to remote servers. It uses Handlebars4Code to generate the output.  The JSON-Editor in the repository <a href="https://www.github.com/niebert/jsoneditor_app" target="_blank">jsoneditor_app on GitHub</a> is used to generate tailored JSON
-			    <hr>
-			    This is an <a href='https://en.wikiversity.org/wiki/AppLSAC' target='_blank'>AppLSAC</a>. The application was create with <a href='https://niehausbert.gitlab.io/jsoneditor4menu' target='_blank'>JSONEditor4Menu</a>. See also <a href='https://www.gitlab.com/niehausbert/jsoneditor4menu' target='_blank'>GitLab repository for source code</a> of JSONEditor4Menu
+			    This is a JSON editor with Load, Save and Print features running completely in the browser without submission of loaded data to remote servers.
+          <ul>
+            <li>
+              The <a href="https://github.com/json-editor/json-editor" target="_blank">underlying JSON-Editor</a> was used for this repository  <a href="https://www.github.com/niebert/jsoneditor_app" target="_blank">jsoneditor_app on GitHub</a>.
+              Editor layout for input is configured by a JSON Schema W to generate tailored JSON
+  			    </li>
+            <li>
+              It uses <a href="https://gitlab.com/niehausbert/handlebars4code#readme" target="_blank">Handlebars4Code</a> to generate the code output from a given JSON (see <a href="https://niehausbert.gitlab.io/handlebars4code" target="_blank">Handelbars4Code Demo</a>).
+            </li>
+            <li>
+              The menu was created with the <a href="https://niehausbert.gitlab.io/jsoneditor4menu/" target="_blank">JSONEditor4Menu</a> as a web-based interface to create a <a href="https://www.github.com/niebert/hamburger_menu_app" target="_blank">Hamburger Menu App</a>.
+              Editor layout for input is configured by a JSON Schema W to generate tailored JSON
+  			    </li>
+            <li>
+              The <a href="https://www.github.com/niebert/icons4menu" target="_blank">used icons for the menu</a> are a icons from <a href="https://jquerymobile.com/download/">JQuery Mobile 1.4.5 Icons</a> and from <a href="https://commons.wikimedia.org/w/index.php?title=Special:Search&limit=50&offset=0&profile=default&search=Font+Awesome&advancedSearch-current={}&ns0=1&ns6=1&ns12=1&ns14=1&ns100=1&ns106=1" target="_blank">WikiCommons</a>. For icons and licensing detail see <a href="img/README_Icons4Menu.html" target="_blank">README_Icons4Menu.html</a>.
+            </li>
+          </ul>
+          This is an <a href='https://en.wikiversity.org/wiki/AppLSAC' target='_blank'>AppLSAC</a>. The application was create with <a href='https://niehausbert.gitlab.io/jsoneditor4menu' target='_blank'>JSONEditor4Menu</a>. See also <a href='https://www.gitlab.com/niehausbert/jsoneditor4menu' target='_blank'>GitLab repository for source code</a> of JSONEditor4Menu
 			    <hr>
 			    <center>Created 2019/09/24 19:39:29<br>last modified 2020/07/27 11:13:14 - Version <div id="version">1.0.2</div></center>
 
@@ -297,6 +330,10 @@
   <!-- adding the event listener to the button -->
   <script src="js/add_event_listener.js"></script>
   <XXscript src="js/bootstrap.js"></scriptXX>
+  <script>
+      // Store Template from vDataJSON into textarea
+      el("tTemplate").value = vDataJSON.tpl.template4json;
+  </script>
 
 </body>
 </html>

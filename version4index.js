@@ -11,6 +11,7 @@ var outfile4menu = "undefined content";
       if (err){
           console.log(err);
       } else {
+        outfile = data.replace(/<div\s+id="version"\s+style[^<]+<\/div>/g,"<div id=\"version\" style=\"display: inline-block\">"+pkg.version+"</div>");
         outfile = data.replace(/<div\s+id="version">[^<]+<\/div>/g,"<div id=\"version\">"+pkg.version+"</div>");
       }
     });
@@ -19,6 +20,7 @@ var outfile4menu = "undefined content";
         if (err){
             console.log(err);
         } else {
+          outfile = data.replace(/<div\s+id="version"\s+style[^<]+<\/div>/g,"<div id=\"version\" style=\"display: inline-block\">"+pkg.version+"</div>");
           outfile4menu = data.replace(/<div\s+id="version">[^<]+<\/div>/g,"<div id=\"version\">"+pkg.version+"</div>");
         }
       });
