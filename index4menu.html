@@ -130,7 +130,7 @@
               </td>
               <td>
                 <button id='bShowJSON' class="btn4menu" onclick="app.evt.show_json();return false">
-                  <img src="img/icons-svg/print-white.svg">
+                  <img src="img/icons-svg/fa-print-white.svg">
                   Show Template
                 </button>
               </td>
@@ -146,7 +146,7 @@
             </td>
             <td>
               <button id='bShowTemplate' class="btn4menu" onclick="app.evt.show_output();return false">
-                <img src="img/icons-svg/print-white.svg">
+                <img src="img/icons-svg/fa-print-white.svg">
                 Show Template
               </button>
             </td>
@@ -179,7 +179,9 @@
         <h2>Delete</h2>
 			    <!-- This is the page content of the menu item 'Delete' of type 'page' -->
 			    <!-- <input type='button' value='Clear Content' onclick="document.getElementById('app_editor').value='';app.nav.page('edit');"> -->
-          <button  id="bButtonDelete" class="btn4menu" onclick="document.getElementById('app_editor').value='';editor.setValue(vDataJSON.db_default);app.nav.page('edit');"><img class="menu-icon" src="img/icons-svg/fa-trash-white.svg"> Clear Content</button>
+          <button  id="bButtonDelete" class="btn4menu" onclick="document.getElementById('app_editor').value='';editor.setValue(vDataJSON.db_default);app.nav.page('edit');">
+            <img class="menu-icon" src="img/icons-svg/fa-trash-white.svg"> Clear Content
+          </button>
           <hr>
           <center>
             <font size="-1">
