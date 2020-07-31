@@ -1,4 +1,4 @@
-vDataJSON["schema4json"] = {
+vDataJSON.schema4json = {
     "type": "object",
     "title": "Class: MyClass",
     "headerTemplate": "Class: {{self.name}}",

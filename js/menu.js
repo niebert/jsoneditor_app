@@ -70,21 +70,30 @@ function AppLSAC() {
 			"_hide_pages": function () {
 				$('.pages-app').hide();
 			}, //--close: _hide_pages
+			"goto_page": function (pid) {
+				$('.pages-app').hide();
+				// use JQuery to show page as DOM element with ID=this.menu.current
+				$('#'+pid).show();
+			},
 			"clear_editor": function () {
 				el('app_editor').value = '';
 				editor.setValue(vDataJSON.db_default);
 			},
 			"show_json": function () {
 				el('app_editor').value = JSON.stringify(editor.getValue(),null,4);
+				this.goto_page("print");
 			},
 			"show_schema": function () {
 				el('app_editor').value = JSON.stringify(vDataJSON.schema4json,null,4);
+				this.goto_page("print");
 			},
 			"show_output": function () {
 				el('app_editor').value = vDataJSON.out.template4json(editor.getValue());
+				this.goto_page("print");
 			},
 			"show_template": function () {
 				el('app_editor').value = vDataJSON.tpl.template4json;
+				this.goto_page("print");
 			}
 	};  //--close: evt
 

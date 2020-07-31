@@ -16,9 +16,12 @@
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/pages.css">
- <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="css/table.css">
+ <!-- Bootstrap Core CSS
  <script src="ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+ <script src="js/ace.js"></script>
 
+  -->
  <script src="js/arrayhash.js"></script>
 
 <!-- generated script tags for 'settings.jsfiles' -->
@@ -114,33 +117,59 @@
 			    var vContent = document.getElementById('app_editor').value;
 			    saveFile2HDD(vFilename,vContent)
 			    -->
-      <button id='bExportJSON' class="btn4menu">
-        <img src="img/icons-svg/fa-file-save-white.svg">
-        Save JSON
-      </button>
-      <input type="text" id="jsonfile" length="10" value="myjson.json">
+          <table>
+            <tr>
+              <td>
+                <!-- Button Save JSON -->
+                <button id='bExportJSON' class="btn4menu">
+                  <img src="img/icons-svg/fa-file-save-white.svg">
+                  Save JSON
+                </button>
+                <!-- Input Filename -->
+                <input type="text" id="jsonfile" length="10" value="myjson.json">
+              </td>
+              <td>
+                <button id='bShowJSON' class="btn4menu" onclick="app.evt.show_json();return false">
+                  <img src="img/icons-svg/print-white.svg">
+                  Show Template
+                </button>
+              </td>
+          </tr>
+          <tr>
+            <td>
+              <!-- Button Save Output JSON -->
+              <button id='bExportOutput' class="btn4menu">
+                <img src="img/icons-svg/fa-file-save-white.svg">
+                Save Output Handlebars4Code
+              </button>
 
-      <!-- Begin: Hidden Buttons -->
-      <button id='submit' style="display:none">Submit (console.log)</button>
-      <button id='enable_disable' style="display:none">Disable/Enable Form</button>
-      <!--  End: hidden Buttons --->
-      <br>
-      <button id='bExportOutput' class="btn4menu">
-        <img src="img/icons-svg/fa-file-save-white.svg">
-        Save Handlebars4Code Output
-      </button>
-      <button id='bShowTemplate' class="btn4menu" onclick="app.nav.page('settings');return false">
-        <img src="img/icons-svg/gear-white.svg">
-        Show Template
-      </button>
+            </td>
+            <td>
+              <button id='bShowTemplate' class="btn4menu" onclick="app.evt.show_output();return false">
+                <img src="img/icons-svg/print-white.svg">
+                Show Template
+              </button>
+            </td>
+          </tr>
+        </table>
+        <!-- Begin: Hidden Buttons -->
+        <button id='submit' style="display:none">Submit (console.log)</button>
+        <button id='enable_disable' style="display:none">Disable/Enable Form</button>
+        <!--  End: hidden Buttons --->
+
       </div>
       <div class="pages-app" data-role="page" id="edit">
         <h2>Edit</h2>
 			    <center>
+            <button id='bGotoSavePage' class="btn4menu" onclick="app.nav.page('save')">
+              <img src="img/icons-svg/fa-file-save-white.svg">
+              Save
+            </button>
             <button id='restore'  class="btn4menu">
               <img src="img/icons-svg/recycle-white.svg">
               Restore to Default
             </button>
+            &nbsp;
             <b>JSON Validator:</b> <span id='valid_indicator'></span>
 				    <div id='editor_holder' style="margin:20px;text-align:left"></div>
 			    </center>
@@ -164,36 +193,37 @@
       </div>
       <div class="pages-app" data-role="page" id="print">
         <h2>Print</h2>
-          <h3>Display Options</h3>
           <table border=0>
             <tr>
               <td>
-                <button class="btn4menu" onclick="app.evt.show_json();return false"><img src="img/icons-svg/fa-edit-white.svg" width="20"> JSON</button>
+                <button class="btn4menu" onclick="app.evt.show_json();printTextArea('app_editor');return false"><img src="img/icons-svg/fa-edit-white.svg" width="20"> JSON</button>
               </td>
               <td>
                 &nbsp;
               </td>
               <td>
-                <button class="btn4menu" onclick="app.evt.show_output();return false"><img src="img/icons-svg/fa-line-chart-white.svg" width="20"> Handlebars4Code Output</button>
+                <button class="btn4menu" onclick="app.evt.show_output();printTextArea('app_editor');return false"><img src="img/icons-svg/fa-line-chart-white.svg" width="20"> Handlebars4Code Output</button>
               </td>
             </tr>
             <tr>
               <td>
-                <button class="btn4menu" onclick="app.evt.show_schema();return false"><img src="img/icons-svg/fa-harddisk-white.svg" width="20"> JSON Schema</button>
+                <button class="btn4menu" onclick="app.evt.show_schema();printTextArea('app_editor');return false"><img src="img/icons-svg/fa-harddisk-white.svg" width="20"> JSON Schema</button>
               </td>
               <td>
                 &nbsp;
               </td>
               <td>
-                <button class="btn4menu" onclick="app.evt.show_template();return false"><img src="img/icons-svg/fa-paste-white.svg" width="20"> Handlebars4Code Template</button>
+                <button class="btn4menu" onclick="app.evt.show_template();printTextArea('app_editor');return false"><img src="img/icons-svg/fa-paste-white.svg" width="20"> Handlebars4Code Template</button>
               </td>
             </tr>
           </table>
           <hr>
         <!-- This is the page content of the menu item 'Print' of type 'page' -->
-          <h3>Print File</h3>
-          <!-- <button class="btn4menu" onclick="previewTextArea('app_editor');return false">Print Preview</button> -->
+        <!--
+        <h3>Print File</h3>
+          <button class="btn4menu" onclick="previewTextArea('app_editor');return false">Print Preview</button>
           <button class="btn4menu" onclick="printTextArea('app_editor');return false">Print</button>
+        -->
           <hr>
           <div style="float:center;width:90%;">
             <textarea id="app_editor" style="width:100%;height:100%" rows="20" ></textarea>
@@ -215,6 +245,9 @@
 			    <b>Export Extension Handlebars4Code:</b>
           <input type='text' id='tExtension' value='.md'>
           <br>
+          <div style="float:center;width:90%;">
+            <textarea id="tSchema" style="width:100%" rows="8" ></textarea>
+          </div>
           <button id='bExportSchemaJSON' class="btn4menu">
             <img src="img/icons-svg/fa-file-save-white.svg">
             Save JSON Editor Schema
@@ -222,7 +255,7 @@
           <hr>
           <b>Template for Handlebars4Code:</b>
           <div style="float:center;width:90%;">
-            <textarea id="tTemplate" style="width:100%;height:100%" rows="20" ></textarea>
+            <textarea id="tTemplate" style="width:100%" rows="8" ></textarea>
           </div>
           <button id='bExportTemplate' class="btn4menu" onclick="saveFile2HDD('template4json'+el('tExtension').value+'.tpl',el('tTemplate').value)">
             <img src="img/icons-svg/fa-file-save-white.svg">
@@ -329,10 +362,11 @@
   </script>
   <!-- adding the event listener to the button -->
   <script src="js/add_event_listener.js"></script>
-  <XXscript src="js/bootstrap.js"></scriptXX>
+  <XXscript src="js/bootstrap.js"></XXscript>
   <script>
       // Store Template from vDataJSON into textarea
       el("tTemplate").value = vDataJSON.tpl.template4json;
+      el("tSchema").value = JSON.stringify(vDataJSON.schema4json,null,4);
   </script>
 
 </body>
