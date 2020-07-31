@@ -1,6 +1,6 @@
 {
   "name": "jsoneditor_app",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "JSON Editor WebApp as AppLSAC for JSON2Schema",
   "main": "version4index.js",
   "scripts": {
