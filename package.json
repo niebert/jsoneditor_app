@@ -4,7 +4,8 @@
   "description": "JSON Editor WebApp as AppLSAC for JSON2Schema",
   "main": "version4index.js",
   "scripts": {
-    "build": "sh ./npm_patch.sh;node ./version4index.js",
+    "build": "node ./version4index.js",
+    "patch": "sh ./npm_patch.sh;node ./version4index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,6 @@
   },
   "homepage": "https://github.com/niebert/jsoneditor_app#readme",
   "dependencies": {
-    "build4code": "^0.3.22"
+    "build4code": "^0.3.27"
   }
 }

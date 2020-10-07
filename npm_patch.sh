@@ -3,7 +3,7 @@ echo "------------------------"
 echo "  Script: $0"
 echo "------------------------"
 Astring="Added feature to package "
-BString="Bugfix of package"
+Bstring="Bugfix of package"
 Rstring="README.md and documentation updated "
 msg="$Bstring"
 patchtype="$msg"
@@ -27,11 +27,11 @@ if [ $# -eq 0 ]
     #### Bugfix of Package
     if  [ $PATCHTYPE == "B" ]
       then
-        patchtype="$BString"
+        patchtype="$Bstring"
     fi
     if  [ $PATCHTYPE == "b" ]
       then
-        patchtype="$BString"
+        patchtype="$Bstring"
     fi
     #### Bugfix of Package
     if  [ $PATCHTYPE == "R" ]
@@ -53,3 +53,5 @@ git add *;
 git commit -m "$msg"
 git push
 npm version patch
+echo "Update Version"
+node ./version4index.js
