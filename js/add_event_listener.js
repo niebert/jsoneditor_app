@@ -61,7 +61,7 @@
         var vJSON = editor.getValue();
         var vTplID = "template4json";
         var vTemplate = vDataJSON.tpl[vTplID];
-        console.log("vTemplate="+vTemplate.subtr(0,250)+"...");
+        console.log("vTemplate="+vTemplate.substr(0,250)+"...");
         //var vContent = Handlebars4Code.compile_code(vTplID,vJSON);
         var vCompiler = Handlebars4Code.create_compiler4template(vTemplate);
         var vContent = vCompiler(vJSON);
