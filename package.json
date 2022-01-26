@@ -21,8 +21,5 @@
   "bugs": {
     "url": "https://github.com/niebert/jsoneditor_app/issues"
   },
-  "homepage": "https://github.com/niebert/jsoneditor_app#readme",
-  "dependencies": {
-    "build4code": "^0.3.27"
-  }
+  "homepage": "https://github.com/niebert/jsoneditor_app#readme"
 }
